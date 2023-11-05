@@ -1,0 +1,2 @@
+00 09 * * * osascript '/Users/isanka/Desktop/mac-auto-play/script.scpt'
+00 17 * * * osascript -e 'tell application "QuickTime Player" to quit'
