@@ -32,7 +32,7 @@ crontab -l > "$DESKTOP_PATH/crontab_backup.txt"
 sleep 1
 
 # Remove old entries from the script and QuickTime Player (you may tailor this as needed)
-crontab -l | grep -v 'script.scpt' | grep -v 'QuickTime Player' | crontab -
+crontab -l | grep -v 'script.applescript' | grep -v 'QuickTime Player' | crontab -
 
 # Convert times to crontab format by extracting hours and minutes
 CRON_START_HOUR=$(echo "$START_TIME" | cut -d':' -f1)
@@ -41,7 +41,7 @@ CRON_STOP_HOUR=$(echo "$STOP_TIME" | cut -d':' -f1)
 CRON_STOP_MINUTE=$(echo "$STOP_TIME" | cut -d':' -f2)
 
 # Update the cron jobs for start time
-if ! (crontab -l; echo "$CRON_START_MINUTE $CRON_START_HOUR * * * osascript '$DESKTOP_PATH/script.scpt'") | crontab - ; then
+if ! (crontab -l; echo "$CRON_START_MINUTE $CRON_START_HOUR * * * osascript '$DESKTOP_PATH/script.applescript'") | crontab - ; then
     echo "Failed to update the start time cron job."
     exit 1
 fi
