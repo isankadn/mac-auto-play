@@ -14,6 +14,7 @@ else
         activate -- This ensures QuickTime Player is running
         open POSIX file videoFile
         set theDoc to the first document
+        set current time of theDoc to 0
         present theDoc
         delay 5 -- Wait for 5 seconds for the video to be ready
         play theDoc
